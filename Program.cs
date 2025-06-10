@@ -1,4 +1,4 @@
-﻿﻿class Program
+class Program
 {
     static void Main()
     {
@@ -13,6 +13,7 @@
             Console.WriteLine("3. Emprestar Livro");
             Console.WriteLine("4. Devolver Livro");
             Console.WriteLine("5. Relatórios");
+            Console.WriteLine("6. Cadastrar Livro");
             Console.WriteLine("0. Sair");
             Console.Write("Escolha uma opção: ");
 
@@ -66,6 +67,26 @@
 
                 case "5":
                     biblioteca.ExibirRelatorios();
+                    break;
+
+                case "6":
+                    Console.Write("Título do livro: ");
+                    string? titulo = Console.ReadLine();
+
+                    Console.Write("Autor do livro: ");
+                    string? autor = Console.ReadLine();
+
+                    Console.Write("ISBN do livro: ");
+                    string? isbn = Console.ReadLine();
+
+                    if (!string.IsNullOrWhiteSpace(titulo) && !string.IsNullOrWhiteSpace(autor) && !string.IsNullOrWhiteSpace(isbn))
+                    {
+                        biblioteca.CadastrarLivro(titulo, autor, isbn);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dados inválidos. O livro não foi cadastrado.");
+                    }
                     break;
 
                 case "0":
