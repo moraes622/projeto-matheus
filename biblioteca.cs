@@ -10,21 +10,20 @@ public class Biblioteca
 
     private void AdicionarLivrosPadrao()
     {
-   livros.AddRange(new List<Livro>
-{
-    new Livro("Dom Casmurro", "Machado de Assis", "001"),
-    new Livro("Memórias Póstumas de Brás Cubas", "Machado de Assis", "002"),
-    new Livro("O Cortiço", "Aluísio Azevedo", "003"),
-    new Livro("Iracema", "José de Alencar", "004"),
-    new Livro("A Moreninha", "Joaquim Manuel de Macedo", "005"),
-    new Livro("Capitães da Areia", "Jorge Amado", "006"),
-    new Livro("A Hora da Estrela", "Clarice Lispector", "007"),
-    new Livro("Grande Sertão: Veredas", "João Guimarães Rosa", "008"),
-    new Livro("Auto da Compadecida", "Ariano Suassuna", "009"),
-    new Livro("Senhora", "José de Alencar", "010"),
-    new Livro("O Guarani", "José de Alencar", "011")
-});
-
+        livros.AddRange(new List<Livro>
+        {
+            new Livro("Dom Casmurro", "Machado de Assis", "001"),
+            new Livro("Memórias Póstumas de Brás Cubas", "Machado de Assis", "002"),
+            new Livro("O Cortiço", "Aluísio Azevedo", "003"),
+            new Livro("Iracema", "José de Alencar", "004"),
+            new Livro("A Moreninha", "Joaquim Manuel de Macedo", "005"),
+            new Livro("Capitães da Areia", "Jorge Amado", "006"),
+            new Livro("A Hora da Estrela", "Clarice Lispector", "007"),
+            new Livro("Grande Sertão: Veredas", "João Guimarães Rosa", "008"),
+            new Livro("Auto da Compadecida", "Ariano Suassuna", "009"),
+            new Livro("Senhora", "José de Alencar", "010"),
+            new Livro("O Guarani", "José de Alencar", "011")
+        });
     }
 
     public void CadastrarUsuario(int id, string nome)
@@ -37,6 +36,19 @@ public class Biblioteca
         else
         {
             Console.WriteLine("Usuário já existe.");
+        }
+    }
+
+    public void CadastrarLivro(string titulo, string autor, string isbn)
+    {
+        if (!livros.Any(l => l.Isbn == isbn))
+        {
+            livros.Add(new Livro(titulo, autor, isbn));
+            Console.WriteLine("Livro cadastrado com sucesso.");
+        }
+        else
+        {
+            Console.WriteLine("Já existe um livro com este ISBN.");
         }
     }
 
